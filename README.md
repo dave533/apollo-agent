@@ -38,7 +38,7 @@ Apollo Agent integrates cutting-edge MCP (Model Context Protocol) servers with O
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/apollo-agent.git
+git clone https://github.com/AlexandrosLiaskos/apollo-agent.git
 cd apollo-agent
 
 # Install dependencies
@@ -360,8 +360,8 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## 📞 Support
 
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/apollo-agent/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/YOUR_USERNAME/apollo-agent/discussions)
+- **Issues:** [GitHub Issues](https://github.com/AlexandrosLiaskos/apollo-agent/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/AlexandrosLiaskos/apollo-agent/discussions)
 
 ---
 

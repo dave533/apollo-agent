@@ -25,12 +25,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_USERNAME/apollo-agent.git"
+    "url": "git+https://github.com/AlexandrosLiaskos/apollo-agent.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/apollo-agent/issues"
+    "url": "https://github.com/AlexandrosLiaskos/apollo-agent/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/apollo-agent#readme",
+  "homepage": "https://github.com/AlexandrosLiaskos/apollo-agent#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "boxen": "^7.1.1",
