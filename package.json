@@ -1,0 +1,47 @@
+{
+  "name": "apollo-agent",
+  "version": "1.0.0",
+  "description": "AI Agent using Serena MCP, Sequential Thinking MCP, and OpenRouter",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "apollo": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "mcp",
+    "serena",
+    "sequential-thinking",
+    "openrouter",
+    "coding-assistant",
+    "semantic-analysis"
+  ],
+  "author": "Alexandros Liaskos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/apollo-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/apollo-agent/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/apollo-agent#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.3",
+    "dotenv": "^16.3.1",
+    "inquirer": "^9.2.12",
+    "node-fetch": "^3.3.2",
+    "ora": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
