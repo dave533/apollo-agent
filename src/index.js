@@ -56,6 +56,17 @@ async function main() {
         continue;
       }
 
+      if (input === 'complete' || input === 'complete task') {
+        agent.completeCurrentTask();
+        continue;
+      }
+
+      if (input === 'reset tasks' || input === 'clear tasks') {
+        agent.taskManager.reset();
+        console.log(chalk.green('\u2713 Task list reset'));
+        continue;
+      }
+
       if (input === 'knowledge' || input === 'memories' || input === 'kb') {
         await agent.viewKnowledge();
         continue;
@@ -104,6 +115,8 @@ async function main() {
         console.log(chalk.gray('  status') + ' - Show agent status');
         console.log(chalk.gray('  clear') + ' - Clear conversation history');
         console.log(chalk.gray('  tasks') + ' - Show current task list');
+        console.log(chalk.gray('  complete') + ' - Mark current task as complete');
+        console.log(chalk.gray('  reset tasks') + ' - Clear all tasks');
         console.log(chalk.gray('  knowledge') + ' - List all knowledge entries');
         console.log(chalk.gray('  knowledge <category>') + ' - List knowledge by category');
         console.log(chalk.gray('  view <name>') + ' - View detailed knowledge entry');

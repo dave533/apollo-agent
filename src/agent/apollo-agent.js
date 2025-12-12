@@ -206,9 +206,15 @@ export class ApolloAgent {
     this.ui.section('🎯 Task Processing');
     this.session.addMessage('user', taskDescription);
 
+    // Skip planning for simple acknowledgments
+    const isSimpleResponse = /^(yes|no|ok|okay|sure|continue|proceed|skip|exit|quit|help|status|y|n)$/i.test(taskDescription.trim());
+    
     // Phase 1: Planning and Intelligence Gathering
-    if (this.planningMode) {
+    if (this.planningMode && !isSimpleResponse) {
       await this.planningPhase(taskDescription);
+    } else if (isSimpleResponse && this.taskManager.tasks.length > 0) {
+      // User is responding to an existing plan - don't create a new plan
+      this.ui.info('Continuing with existing plan...');
     }
 
     // Add user message to conversation
@@ -356,6 +362,7 @@ Format as JSON:
         } else {
           this.ui.info('Planning cancelled. Proceeding with ad-hoc execution.');
           this.planningMode = false;
+          this.taskManager.reset(); // Clear any partial plan
         }
       } else {
         this.ui.warning('Could not parse planning response. Proceeding without plan.');
@@ -368,12 +375,49 @@ Format as JSON:
   }
 
   updateTaskProgress(toolName, args) {
-    // Auto-detect task progress based on tool usage
+    // Get current task state
+    const currentTask = this.taskManager.tasks.find(t => t.status === 'in-progress');
     const nextTask = this.taskManager.getNextTask();
     
-    if (nextTask && nextTask.status === 'pending') {
+    // If no task in progress, start the next one
+    if (!currentTask && nextTask && nextTask.status === 'pending') {
       this.taskManager.startTask(nextTask.id);
       this.ui.info(`Starting task: ${nextTask.name}`);
+    }
+    
+    // Auto-complete tasks based on tool execution patterns
+    // This is a heuristic - complete current task after several tool calls
+    if (currentTask) {
+      const taskName = currentTask.name.toLowerCase();
+      
+      // Pattern matching for task completion
+      const completionPatterns = [
+        { pattern: /gather|detect|check|identify/i, tools: ['execute_shell_command', 'mcp_oraios_serena_get_symbols_overview'] },
+        { pattern: /install/i, tools: ['execute_shell_command'] },
+        { pattern: /configure|setup/i, tools: ['mcp_oraios_serena_replace_symbol_body', 'mcp_oraios_serena_insert_after_symbol', 'execute_shell_command'] },
+        { pattern: /research|search|find/i, tools: ['execute_shell_command', 'mcp_oraios_serena_search_for_pattern', 'mcp_oraios_serena_find_symbol'] },
+        { pattern: /test/i, tools: ['execute_shell_command'] },
+      ];
+      
+      // Check if tool indicates task completion
+      const matchingPattern = completionPatterns.find(p => p.pattern.test(taskName));
+      if (matchingPattern && matchingPattern.tools.includes(toolName)) {
+        // Mark task as likely complete after this tool execution
+        currentTask._toolExecutionCount = (currentTask._toolExecutionCount || 0) + 1;
+        
+        // Complete after 2-3 relevant tool calls (configurable heuristic)
+        if (currentTask._toolExecutionCount >= 2) {
+          this.taskManager.completeTask(currentTask.id);
+          this.ui.success(`✓ Completed task: ${currentTask.name}`);
+          
+          // Start next task if available
+          const next = this.taskManager.getNextTask();
+          if (next) {
+            this.taskManager.startTask(next.id);
+            this.ui.info(`Starting next task: ${next.name}`);
+          }
+        }
+      }
     }
 
     // Show current progress periodically
@@ -639,29 +683,38 @@ You have GLOBAL filesystem access via shell commands (execute_shell_command).
 - Use commands like: cd, ls, cat, cp, mv, mkdir, touch, etc. with absolute paths
 - Example: execute_shell_command({ command: "ls -la /home/wan/other-project" })
 
-## ⚠️ MANDATORY FIRST STEPS (DO THIS BEFORE ANY ACTION)
+## ⚠️ AGENT BEHAVIOR & AUTONOMY
 
-1. **ACT AS A PROPER AGENT**:
+1. **ACT AS A PROPER AUTONOMOUS AGENT**:
    - Gather intelligence before acting
    - Create and follow execution plans
    - Track progress systematically
    - Store important knowledge for later use
+   - **EXECUTE tasks with available tools - don't just provide instructions**
    - Don't finish until objectives are met
 
-2. **USE SEQUENTIAL THINKING FIRST** - For ANY task, start by calling sequential_thinking to:
+2. **USE SEQUENTIAL THINKING FOR COMPLEX TASKS** - For complex/ambiguous tasks, use sequential_thinking to:
    - State what you understand the user wants
    - Break down the steps needed
    - Identify any ambiguities or questions
 
-3. **CONFIRM UNDERSTANDING** - Your FIRST response to the user should be:
-   "I understand you want to [X]. Here's my plan:
-   1. [step 1]
-   2. [step 2]
-   Does this look right, or would you like to clarify anything?"
+3. **AUTONOMY GUIDELINES**:
+   - **SIMPLE/CLEAR TASKS**: Execute directly with tools (e.g., "install X", "check Y", "configure Z")
+   - **COMPLEX TASKS**: Plan first, then execute systematically
+   - **AMBIGUOUS TASKS**: Ask clarifying questions before planning
+   - **DESTRUCTIVE TASKS**: Warn user but proceed if they confirm
+   
+4. **FOLLOW-THROUGH IS CRITICAL**:
+   - If you CAN execute with tools, DO IT - don't just tell the user how
+   - Example: User asks to install package → RUN install command, don't just suggest it
+   - Example: User asks to configure keybinding → EDIT the config file with tools
+   - Use execute_shell_command with sudo for system operations
+   
+5. **WHEN TO ASK vs WHEN TO ACT**:
+   - ASK: Ambiguous requirements, destructive operations without confirmation, choosing between options
+   - ACT: Clear requirements, standard operations, gathering information, file operations
 
-4. **WAIT FOR CONFIRMATION** on complex or potentially destructive tasks before executing
-
-NEVER skip these steps and jump straight to tool execution!
+NEVER provide manual instructions when you have tools to execute the task!
 
 ## Your Capabilities
 
